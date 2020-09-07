@@ -29,13 +29,18 @@
 					<tr>
 						<td>1</td>
 						<td>{{$subcategory->name}}</td>
-					 	<td>{{($subcategory->name)}}</td>
-						<td><a href="" class="btn btn-warning">Detail</a>
+					 	<td>{{$subcategory->category_id}}</td>
+						<td>
 							<a href="{{route('subcategories.edit',$subcategory->id)}}" class="btn btn-dark">Edit</a>
-							<a href="" class="btn btn-danger">Delete</a>
+							<form  action="{{route('subcategories.destroy',$subcategory->id)}}" method="post" class="d-inline-block">
+								@csrf
+								@method('DELETE')
+							<input type="submit" class="btn btn-danger" value="Delete">
+							</form>
 							</td>
 					</tr>
-					@endforeach
+					 @endforeach
+					
 				</tbody>
 			</table>
 			</div>

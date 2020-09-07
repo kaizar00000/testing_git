@@ -159,9 +159,14 @@ $(document).ready(function(){
       var itemObject = JSON.parse(item);
       var itemArr = itemObject.itemlist;
       var qtyy=0;
+      var total=0;
+      var subtotal=0;
       $.each(itemArr,function(i,v){
         qtyy += v.qty;
+         subtotal = v.qty*v.price;
+        total+=subtotal;
       })
+      $('.total').text(total);
       $('.cartNoti').text(qtyy);
     }
   }

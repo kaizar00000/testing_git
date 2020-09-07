@@ -18,9 +18,9 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/', 'PageController@mainfun')->name('mainpage');
 
-Route::get('brand', 'PageController@brandfun')->name('brandpage');
+Route::get('brand/{id}', 'PageController@brandfun')->name('brandpage');
 
-Route::get('itemdetail', 'PageController@itemdetailfun')->name('itemdetailpage');
+Route::get('itemdetail/{id}', 'PageController@itemdetailfun')->name('itemdetailpage');
 
 Route::get('promotion', 'PageController@promotionfun')->name('promotionpage');
 
@@ -30,7 +30,6 @@ Route::get('shoppingcart', 'PageController@shoppingcartfun')->name('shoppincartp
 
 Route::get('subcategory', 'PageController@subcategoryfun')->name('subcategorypage');
 
-Route::get('logingpage', 'PageController@loginfun')->name('loginpage');
 
 // Route::get('/', 'PageController@mainfun')->name('mainpage');
 
@@ -46,15 +45,25 @@ Route::resource('subcategories','SubcategoryController');
 
 Route::resource('orders','OrderConrtoller');
 
+
+
+
 Route::middleware('role:Admin')->group(function(){
 
 Route::get('dashboard', 'BackendController@dashboardfun')->name('Dashboardpage');
 
 Route::resource('items','ItemController');
 
+
+
 });
 
 
 Auth::routes();
 
+
+
+
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('loginpage', 'PageController@loginfun')->name('loginpage');

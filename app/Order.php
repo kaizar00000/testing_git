@@ -17,6 +17,6 @@ class Order extends Model
     }
     public function user($value='')
     {
-    	return $this->belongTo('App\User');
+    	return $this->belongsTo('App\User');
     }
 }

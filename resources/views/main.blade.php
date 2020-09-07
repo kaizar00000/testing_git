@@ -27,15 +27,19 @@
 	<div class="container mt-5 px-5">
 		<!-- Category -->
 		<div class="row">
+			@foreach($categories as $category)
 			<div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 ">
 				<div class="card categoryCard border-0 shadow-sm p-3 mb-5 rounded text-center">
-				  	<img src="{{ asset('frontend/image/category/category_one.png') }}" class="card-img-top" alt="...">
+					
+				  	<img src="{{$category->photo}}" class="card-img-top" alt="...">
 				  	<div class="card-body">
-				    	<p class="card-text font-weight-bold text-truncate"> Smart Home </p>
+				    	<p class="card-text font-weight-bold text-truncate"> Categories </p>
 				  	</div>
+				  	
 				</div>
 			</div>
-
+			@endforeach
+{{-- 
 			<div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12 ">
 				<div class="card categoryCard border-0 shadow-sm p-3 mb-5 rounded text-center">
 				  	<img src="{{ asset('frontend/image/category/category_two.png') }}" class="card-img-top" alt="...">
@@ -97,7 +101,7 @@
 				    	<p class="card-text font-weight-bold text-truncate"> Health Care </p>
 				  	</div>
 				</div>
-			</div>
+			</div> --}}
 		</div>
 
 		<div class="whitespace d-xl-block d-lg-block d-md-none d-sm-none d-none"></div>
@@ -115,6 +119,7 @@
 		            <div class="MultiCarousel-inner">
 		            		@foreach($items as $item)
 		                <div class="item">
+		                	<a href="{{route('itemdetailpage',$item->id)}}">
 		                    <div class="pad15">
 		                    	<img src="{{$item->photo}}" class="img-fluid">
 		                        <p class="text-truncate">{{$item->name}}</p>
@@ -136,6 +141,7 @@
 								<a href="#" class="addtocartBtn text-decoration-none" data-id="{{$item->id}}" data-photo="{{$item->photo}}" data-name="{{$item->name}}" data-price="{{$item->price}}" data-discount="{{$item->discount}}" >Add to Cart</a>
 
 		                    </div>
+		                </a>
 		                </div>
 		               
 		                 @endforeach
@@ -159,59 +165,13 @@
 
 	    <!-- Brand Store Item -->
 	    <section class="customer-logos slider mt-5">
+	    	@foreach($brands as $brand)
 	      	<div class="slide">
-	      		<a href="">
-		      		<img src="image/brand/loacker_logo.jpg') }}">
+	      		<a href="{{route('brandpage',$brand->id)}}">
+		      		<img src="{{$brand->photo}}" class="img-fluid">
 		      	</a>
 	      	</div>
-	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="{{ asset('frontend/image/brand/lockandlock_logo.png') }}">
-	      		</a>
-	      	</div>
-	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="{{ asset('frontend/image/brand/apple_logo.png') }}">
-	      		</a>
-	      	</div>
-	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="{{ asset('frontend/image/brand/giordano_logo.png') }}">
-	      		</a>
-	      	</div>
-	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="{{ asset('frontend/image/brand/saisai_logo.png') }}">
-	      		</a>
-	      	</div>
-	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="{{ asset('frontend/image/brand/brands_logo.png') }}">
-	      		</a>	
-	      	</div>
-	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="{{ asset('frontend/image/brand/acer_logo.png') }}">
-	      		</a>
-	      	</div>
-	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="{{ asset('frontend/image/brand/bella_logo.png') }}">
-	      		</a>
-	      	</div>
-	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="{{ asset('frontend/image/brand/ariel_logo.png') }}">
-	      		</a>
-	      	</div>
+	      	@endforeach
 	   	</section>
 
 	    <div class="whitespace d-xl-block d-lg-block d-md-none d-sm-none d-none"></div>

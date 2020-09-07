@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Category;
 use App\Subcategory;
 use Illuminate\Http\Request;
 
@@ -14,9 +14,10 @@ class SubcategoryController extends Controller
      */
     public function index()
     {
+        $categories = Category::all();
         $subcategories = Subcategory::all();
         //
-        return view('backend.Subcategories.index',compact('subcategories'));
+        return view('backend.Subcategories.index',compact('subcategories','categories'));
     }
 
     /**
@@ -27,9 +28,9 @@ class SubcategoryController extends Controller
     public function create()
     {
          
-        $subcategories = Subcategory::all();
+        $categories = Category::all();
 
-        return view('backend.Subcategories.create',compact('subcategories'));
+        return view('backend.Subcategories.create',compact('categories'));
 }
     /**
      * Store a newly created resource in storage.
@@ -45,7 +46,7 @@ class SubcategoryController extends Controller
         $request->validate([
            
             "name" =>'required',
-            "subcategory" =>'required'
+            "category" =>'required'
            
         ]);
 
@@ -56,7 +57,7 @@ class SubcategoryController extends Controller
         //Data insert
             $subcategory = new Subcategory;
             $subcategory->name = $request->name;
-            $subcategory->category_id = $request->subcategory;
+            $subcategory->category_id = $request->category;
             $subcategory->save();
 
 
@@ -82,9 +83,9 @@ class SubcategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Subcategory $subcategory)
-    {   
-        $subcategories = Subcategory::all();
-        return view('backend.Subcategories.edit',compact('subcategories','subcategory'));
+    {    $categories = Category::all();
+        // $subcategories = Subcategory::all();
+        return view('backend.Subcategories.edit',compact('categories','subcategory'));
     }
 
     /**
@@ -96,10 +97,11 @@ class SubcategoryController extends Controller
      */
     public function update(Request $request, Subcategory $subcategory)
     {
+
         $request->validate([
             
             "name" =>'required',
-             "subcategory" =>'required'
+             "category" =>'required'
                   ]);
 
         //file upload,if data
@@ -108,7 +110,7 @@ class SubcategoryController extends Controller
         //data update
      
            $subcategory->name = $request->name;
-           $subcategory->category_id = $request->subcategory;
+           $subcategory->category_id = $request->category;
            
           
             $subcategory->save();
@@ -125,6 +127,9 @@ class SubcategoryController extends Controller
      */
     public function destroy(Subcategory $subcategory)
     {
-        //
+       
+       $subcategory->delete();
+
+          return redirect()->route('subcategories.index'); 
     }
 }

@@ -2,7 +2,7 @@
 @section('contend')
 	<div class="container-fluid">
 		<div class="d-sm-flex align-items-center justify-content-between mb-4">
-			<h1 class="h3 mb-0 text-gray-800">Brand Create Form</h1>
+			<h1 class="h3 mb-0 text-gray-800">Subcategories Create Form</h1>
 			
 		</div>
 		<form action="{{route('subcategories.store')}}" method="post" enctype="multipart/form-data">
@@ -18,10 +18,10 @@
 				<div class="row form-group">
 					<label class="col-md-1 form-control-label">Category Name</label>
 					<div class="col-md-6">
-						<select class="form-control form-control-md" id="subcategory"
-						name="subcategory">
+						<select class="form-control form-control-md" 
+						name="category">
 						<optgroup label="Choose Subcategory">
-							@foreach($subcategories as $category)
+							@foreach($categories as $category)
 							<option value="{{$category->id}}">{{$category->name}}</option>
 							@endforeach
 						</optgroup>

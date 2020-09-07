@@ -30,9 +30,13 @@
 						<td>1</td>
 						<td>{{$category->name}}</td>
 					 	<td><img src="{{asset($category->photo)}}" width="300px" height="300px"> </td>
-						<td><a href="" class="btn btn-warning">Detail</a>
+						<td>
 							<a href="{{route('categories.edit',$category->id)}}" class="btn btn-dark">Edit</a>
-							<a href="" class="btn btn-danger">Delete</a>
+							<form  action="{{route('categories.destroy',$category->id)}}" method="post" class="d-inline-block">
+								@csrf
+								@method('DELETE')
+							<input type="submit" class="btn btn-danger" value="Delete">
+							</form>
 							</td>
 					</tr>
 					@endforeach

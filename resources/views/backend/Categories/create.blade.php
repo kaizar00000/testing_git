@@ -2,7 +2,7 @@
 @section('contend')
 	<div class="container-fluid">
 		<div class="d-sm-flex align-items-center justify-content-between mb-4">
-			<h1 class="h3 mb-0 text-gray-800">Brand Create Form</h1>
+			<h1 class="h3 mb-0 text-gray-800">Categories Create Form</h1>
 			
 		</div>
 		<form action="{{route('categories.store')}}" method="post" enctype="multipart/form-data">

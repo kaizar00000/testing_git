@@ -4,7 +4,7 @@
 	
 	<div class="container-fluid">
 		<div class="d-sm-flex align-items-center justify-cont  ent-between mb-4">
-			<h1 class="h3 mb-0 text-gray-800">Brand Edit Form</h1>
+			<h1 class="h3 mb-0 text-gray-800">Subcategories Edit Form</h1>
 			
 		</div>
 		<form action="{{route('subcategories.update',$subcategory->id)}}" method="post" enctype="multipart/form-data">
@@ -24,10 +24,10 @@
 				<div class="row form-group">
 					<label class="col-md-1 form-control-label">Subcategory</label>
 					<div class="col-md-6">
-						<select class="form-control form-control-md" id="subcategory"
-						name="subcategory">
+						<select class="form-control form-control-md" 
+						name="category">
 						<optgroup label="Choose Subcategory">
-							@foreach($subcategories as $category)
+							@foreach($categories as $category)
 							<option value="{{$category->id}}">{{$category->name}}</option>
 							@endforeach
 						</optgroup>

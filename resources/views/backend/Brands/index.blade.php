@@ -32,7 +32,11 @@
 					 	<td><img src="{{asset($brand->photo)}}" width="300px" height="300px"> </td>
 						<td><a href="" class="btn btn-warning">Detail</a>
 							<a href="{{route('brands.edit',$brand->id)}}" class="btn btn-dark">Edit</a>
-							<a href="" class="btn btn-danger">Delete</a>
+							<form  action="{{route('brands.destroy',$brand->id)}}" method="post" class="d-inline-block">
+								@csrf
+								@method('DELETE')
+							<input type="submit" class="btn btn-danger" value="Delete">
+							</form>
 							</td>
 					</tr>
 					@endforeach

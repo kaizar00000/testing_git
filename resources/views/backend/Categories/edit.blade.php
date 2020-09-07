@@ -4,7 +4,7 @@
 	
 	<div class="container-fluid">
 		<div class="d-sm-flex align-items-center justify-cont  ent-between mb-4">
-			<h1 class="h3 mb-0 text-gray-800">Brand Edit Form</h1>
+			<h1 class="h3 mb-0 text-gray-800">Categories Edit Form</h1>
 			
 		</div>
 		<form action="{{route('categories.update',$category->id)}}" method="post" enctype="multipart/form-data">
