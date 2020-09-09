@@ -33,7 +33,7 @@
 					
 				  	<img src="{{$category->photo}}" class="card-img-top" alt="...">
 				  	<div class="card-body">
-				    	<p class="card-text font-weight-bold text-truncate"> Categories </p>
+				    	<p class="card-text font-weight-bold text-truncate"> {{$category->name}} </p>
 				  	</div>
 				  	
 				</div>

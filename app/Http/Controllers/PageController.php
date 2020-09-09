@@ -11,7 +11,7 @@ class PageController extends Controller
 {
     //
     public function mainfun($value=''){
-        $categories=Category::All();
+        $categories=Category::All()->take(8);
          $subcategories=Subcategory::All();
          $items=Item::All();
          $brands =Brand::All();
